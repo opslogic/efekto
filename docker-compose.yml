@@ -1,0 +1,16 @@
+version: '3'
+services:
+  efekto_web:
+    image: efekto/jekyll
+    expose:
+      - "80"
+      - "443"
+    environment:
+      VIRTUAL_HOST:  efekto.com
+      LETSENCRYPT_HOST:  efekto.com
+      LETSENCRYPT_EMAIL:  ops@efekto.com
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
